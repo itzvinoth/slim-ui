@@ -2,9 +2,7 @@
 
 `slim-ui` is a simple vue components library contains needed UI elements. It was developed to solve [zerodha](https://zerodha.com/)'s application frontend needs and generic enough to use in any vue projects.
 
-## Docs
-
-- [📚Docs](https://slim-ui.github.io/)
+## [📚Docs](https://slim-ui.github.io/)
 
 # 🔧 Install
 
