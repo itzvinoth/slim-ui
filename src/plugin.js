@@ -9,6 +9,7 @@ import Modal from "./components/Modal"
 import Toast from "./components/Toast.vue"
 import Select from "./components/Select.vue"
 import RadioGroup from "./components/RadioGroup"
+import TinyTabs from "./components/TinyTabs"
 import DataTable from "./components/DataTable"
 import tooltip from "./directives/tooltip"
 import Events from './events'
@@ -84,6 +85,7 @@ const components = {
   [Toast.name]: Toast,
   [Select.name]: Select,
   [RadioGroup.name]: RadioGroup,
+  [TinyTabs.name]: TinyTabs,
   [DataTable.name]: DataTable
 }
 
@@ -123,5 +125,6 @@ export {
   Modal,
   Select,
   RadioGroup,
+  TinyTabs,
   DataTable
 }
