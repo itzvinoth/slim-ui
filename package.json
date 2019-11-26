@@ -1,0 +1,68 @@
+{
+  "name": "slim-ui",
+  "version": "1.1.22",
+  "description": "Zerodha's simple ui",
+  "author": "Vinoth Kumar V <vinoth.kumar@zerodha.com>",
+  "private": false,
+  "main": "src/plugin.js",
+  "scripts": {
+    "build": "webpack -p",
+    "lint": "eslint --ext .js,.vue src"
+  },
+  "dependencies": {
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^2.0.8",
+    "postcss-url": "^7.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.3.2",
+    "chalk": "^2.0.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.0",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.4",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "node-notifier": "^5.1.2",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "ora": "^1.2.0",
+    "portfinder": "^1.0.13",
+    "rimraf": "^2.6.0",
+    "sass-loader": "^8.0.0",
+    "semver": "^5.3.0",
+    "shelljs": "^0.7.6",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "url-loader": "^0.5.8",
+    "vue": "^2.5.2",
+    "vue-loader": "^15.7.2",
+    "vue-template-compiler": "^2.5.2",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": ">=3.1.11",
+    "webpack-merge": "^4.2.2"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "license": "ISC"
+}
