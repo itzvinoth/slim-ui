@@ -1,21 +1,47 @@
 # simple-ui
 
-> Zerodha's simple ui
+Slim-ui is a simple vue components library contains needed UI elements. It was developed to solve [zerodha](https://zerodha.com/)'s application needs and generic enough to use in any vue projects.
 
-## Build Setup
+## Docs
 
-``` bash
-# install dependencies
-npm install
+- [📚Docs](https://slim-ui.github.io/)
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 🔧 Install
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```bash
+# npm
+npm install slim-ui
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+```bash
+# yarn
+yarn add slim-ui
+```
+
+# 🔨 Usage
+
+## Import individual components
+
+```html
+<su-button class="button button-blue">Primary</su-button>
+<su-checkbox v-model="car" label="Car"></su-checkbox>
+```
+
+```js
+import Vue from 'vue'
+import { Button, Checkbox } from 'slim-ui'
+
+export default {
+    components: {
+        'su-button': Button,
+        'su-checkbox': Checkbox
+    },
+    data () {
+        car: false
+    }
+}
+```
+
+## License
+MIT
+
