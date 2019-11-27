@@ -72,22 +72,34 @@ export default {
 	mounted () {
 		document.addEventListener("keyup", this.navOnLabel)
 		document.addEventListener("keypress", this.onEnterPress)
-		window.addEventListener("click", this.checkElement)
+		window.addEventListener("click", this.onSelectContainer)
 	},
 	destroyed () {
 		document.removeEventListener("keyup", this.navOnLabel)
 		document.removeEventListener("keypress", this.onEnterPress)
-		window.removeEventListener("click", this.checkElement)
+		window.removeEventListener("click", this.onSelectContainer)
 	},
 	methods: {
         // on click of the multi select element we need to show the dropdown, or hide it..
-		checkElement (event) {
+		onSelectContainer (event) {
             if (document.getElementsByClassName('multiselect')[0].contains(event.target)) {
 				this.showLabels = true
 			} else {
                 this.showLabels = false
             }
-		},
+        },
+        // push new item to the array list
+        addItem (array, item) {
+            let sValue = {}
+            sValue[this.trackBy] = item[this.trackBy]
+            sValue[this.label] = item[this.label]
+            array.push(sValue)
+            return array
+        },
+        // remove item from the array list
+        removeItem (array, item) {
+            array.splice(array.map(val => val[this.trackBy]).indexOf(item[this.trackBy]), 1)
+        },
 		keyMonitor (event) {
 			let evtkey = event.keyCode
 			let valLength = this.selectedValues.length
@@ -118,36 +130,30 @@ export default {
 				this.$refs.listsearch.focus()
 			})
 		},
-		clearItem (event, selectedItem) {
-			// Deselects or removes the element from the multi-select div when clicking the close button...
-			this.filteredOptions.map((item, index) => {
-				if (item[this.trackBy].indexOf(selectedItem[this.trackBy]) > -1) {
-					this.selectedValues.splice(this.selectedValues.map(sVal => sVal[this.trackBy]).indexOf(selectedItem[this.trackBy]), 1)
-					item.selected = !item.selected
-				}
-			})
-		},
+		// Deselects or removes the element from the multi-select div when clicking the close button...
+		clearItem (event, item) {
+            this.removeItem(this.selectedValues, item)
+            item.selected = !item.selected
+        },
+        // show labels list on focus of the multi select container..
 		onFocus () {
 			this.showLabels = true
 		},
+		// Selects or append the elements to the multi-select div when clicking on the list elements...
 		onLabelClick (data, index) {
-			// Selects or append the elements to the multi-select div when clicking on the list elements...
             data.selected = !data.selected
             // this.showLabels = true
             this.search = ''
             this.filteredOptions.map(item => {
                 if (item[this.trackBy].toLowerCase().indexOf(data[this.trackBy].toLowerCase()) > -1 && item.selected == true) {
-                    let sValue = {}
-                    sValue[this.trackBy] = item[this.trackBy]
-                    sValue[this.label] = item[this.label]
-                    this.selectedValues.push(sValue)
+                    this.addItem(this.selectedValues, item)
                 } else if (item[this.trackBy].toLowerCase().indexOf(data[this.trackBy].toLowerCase()) > -1 && item.selected == false) {
-                    this.selectedValues.splice(this.selectedValues.map(sVal => sVal[this.trackBy]).indexOf(data[this.trackBy]), 1)
+                    this.removeItem(this.selectedValues, data)
                 }
             })
 		},
+		// Naviate through label items on key up & down
 		navOnLabel () {
-			// Naviate through label items on key up & down
 			let getLabel = document.getElementById('labels')
 			if (event.keyCode == 38) {
 				if (this.currItem !== 1) {
@@ -174,21 +180,18 @@ export default {
 				}
 			})
 		},
+		// Select & Deselect Labels on keypress Enter
 		onEnterPress () {
-			// Select & Deselect Labels on keypress Enter
 			if (event.keyCode == 13) {
                 var filteredCurrentOption = this.filteredOptions[this.currItem - 1]
 				if (filteredCurrentOption.selected === false) {
-					let sValue = {}
+                    this.addItem(this.selectedValues, filteredCurrentOption)
 					filteredCurrentOption.selected = true
-					sValue[this.trackBy] = filteredCurrentOption[this.trackBy]
-					sValue[this.label] = filteredCurrentOption[this.label]
-					this.selectedValues.push(sValue)
 					this.search = ''
 					// this.currItem = 1
 				} else {
-					this.selectedValues.splice(this.selectedValues.map(sVal => sVal[this.trackBy]).indexOf(filteredCurrentOption[this.trackBy]), 1)
-					filteredCurrentOption.selected = false
+                    filteredCurrentOption.selected = false
+                    this.removeItem(this.selectedValues, filteredCurrentOption)
 				}
 			}
 		}
@@ -218,7 +221,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_common.scss";
 .multiselect__select {
 	border: 1px solid #CCC;
 	width: 100%;
