@@ -259,8 +259,8 @@ li.multiselect__tag {
 	border: 1px solid #CCC;
 	border-radius: 2px;
 	padding-left: 4px;
-	padding-top: 4px;
-	padding-bottom: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	padding-right: 14px;
 	margin-left: 5px;
 	margin-bottom: 4px;
