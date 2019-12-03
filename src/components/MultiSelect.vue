@@ -4,11 +4,11 @@
             <p v-show="false"> {{ currItem }}</p>
             <ul class="multiselect__tags">
                 <li class="multiselect__tag" v-for="data in selectedValues" :key="data.label">
-					{{ data.label }}
-					<span class="close" @click="clearItem($event, data)">&times;</span>
-				</li>
+									{{ data.label }}
+									<span class="close" @click="clearItem($event, data)">&times;</span>
+								</li>
                 <li class="multiselect__tag">
-                    <input type="text" class="search" ref="listsearch" v-model="search" @focus="onFocus" @keydown="keyMonitor"></input>
+                    <input type="text" class="search" ref="listsearch" :placeholder="placeholder" v-model="search" @focus="onFocus" @keydown="keyMonitor"></input>
                 </li>
             </ul>
         </div>

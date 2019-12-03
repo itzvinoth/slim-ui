@@ -11,6 +11,7 @@ import Select from "./components/Select.vue"
 import RadioGroup from "./components/RadioGroup"
 import TinyTabs from "./components/TinyTabs"
 import MultiSelect from "./components/MultiSelect"
+import OTP from "./components/OTP"
 import DataTable from "./components/DataTable"
 import tooltip from "./directives/tooltip"
 import Events from './events'
@@ -87,7 +88,8 @@ const components = {
   [Select.name]: Select,
   [RadioGroup.name]: RadioGroup,
   [TinyTabs.name]: TinyTabs,
-  [MultiSelect.name]: MultiSelect,
+	[MultiSelect.name]: MultiSelect,
+	[OTP.name]: OTP,
   [DataTable.name]: DataTable
 }
 
@@ -128,6 +130,7 @@ export {
   Select,
   RadioGroup,
   TinyTabs,
-  MultiSelect,
+	MultiSelect,
+	OTP,
   DataTable
 }
