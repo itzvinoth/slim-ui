@@ -45,8 +45,8 @@ button {
 	padding: 5px 20px;
 	border-radius: 2px;
 	border: 1px solid $color-dusty-grey;
-    font-weight: 400;
-    font-size: 0.825rem;
+	font-weight: 400;
+	font-size: 0.825rem;
 	letter-spacing: 0.5px;
 	display: inline-block;
 	cursor: pointer;

@@ -222,7 +222,7 @@ export default {
 	input {
 		border: 0;
 		border: 1px solid $color-mercury-grey;
-		padding: 6px 0;
+		padding: 8px;
 		color: $color-tundora-grey;
 		width: 100%;
 
@@ -232,7 +232,7 @@ export default {
 			color: $color-silver-grey;
 			cursor: not-allowed;
 			box-sizing: border-box;
-			padding: 6px;
+			padding: 8px;
 			border-color: transparent;
 		}
 		&:focus {
@@ -256,6 +256,7 @@ export default {
 	.su-input-label {
 		display: block;
 		visibility: hidden;
+		margin-bottom: 4px;
 	}
 
 	.su-input-label.su-visible {
@@ -264,7 +265,7 @@ export default {
 		visibility: visible;
 	}
 	.su-dynamic-label {
-		@extend .text-xxsmall;
+		@extend .text-xsmall;
 	}
 
 	&.su-static-label .su-input-label {
