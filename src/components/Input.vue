@@ -2,7 +2,7 @@
 	<div :class="classes">
 		<label v-if="this.staticLabel || this.animate" :class="labelClasses">{{ currentLabel }}</label>
 
-		<input :type="type" ref="input" v-bind="$props" :placeholder="currentPlaceholder"
+		<input :type="type" :ref="ref" v-bind="$props" :placeholder="currentPlaceholder"
 			@focus="onFocus()" @blur="onBlur()" @input="handleInput" :class="spinnerClasses" :value="currentValue" :readonly="readonly" autocorrect="off" autocapitalize="none">
 		<checkmark-icon :class="iconStatusClasses" v-if="hasStatus" width="16" height="16"></checkmark-icon>
 
@@ -48,6 +48,10 @@ export default {
 		type: {
 			type: String,
 			default: "text"
+		},
+		ref: {
+			type: String,
+			default: ""
 		},
 		placeholder: {
 			type: String,
