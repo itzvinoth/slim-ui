@@ -75,13 +75,11 @@
 		color: $color-fruit-salad-green;
 	}
 
-	&-red,
-	&-sell {
+	&-red {
 		color: $color-pomegranate-red;
 	}
 
-	&-blue,
-	&-buy {
+	&-blue {
 		color: $color-havelock-blue;
 	}
 
@@ -183,37 +181,4 @@ a.text-light:hover {
 
 .wide {
 	width: 100%;
-}
-
-.text-box {
-	padding: 10px 20px;
-	margin-bottom: 20px;
-	border-radius: 2px;
-	color: rgba(0, 0, 0, .65);
-	border-left: 5px solid $color-wild-sand-grey;
-
-	&.green {
-		background-color: #ebf8f2;
-		border-color: #ebf8f2;
-	}
-
-	&.blue {
-		background-color: #ecf6fd;
-		border-color: #d2eafb;
-	}
-
-	&.red {
-		background-color: #fef0ef;
-		border-color: #fcdbd9;
-	}
-
-	&.yellow {
-		background-color: #fffaeb;
-		border-color: #fff3cf;
-	}
-}
-
-.disclaimer {
-	@extend .text-xxsmall;
-	@extend .dim;
 }

@@ -217,7 +217,7 @@ export default {
 .su-input-group {
 	position: relative;
 	width: 250px;
-	margin-bottom: 15px;
+	padding: 6px 0;
 
 	input {
 		border: 0;
@@ -267,6 +267,14 @@ export default {
 	.su-dynamic-label {
 		@extend .text-xsmall;
 	}
+	.su-input-label.su-dynamic-label {
+		z-index: 5;
+		position: absolute;
+		top: -2px;
+		background: #fff;
+		padding: 0 5px;
+		margin-left: 10px;
+	}
 
 	&.su-static-label .su-input-label {
 		visibility: visible;
@@ -283,7 +291,7 @@ export default {
 	.su-message {
 		@extend .slideInDown;
 		@extend .animated;
-		@extend .text-xxsmall;
+		@extend .text-small;
 		// visibility: hidden;
 	}
 
@@ -300,5 +308,6 @@ export default {
 	}
 
 }
+
 
 </style>
