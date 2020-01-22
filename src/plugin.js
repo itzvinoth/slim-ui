@@ -7,7 +7,6 @@ import Switch from "./components/Switch.vue"
 import Loader from "./components/Loader.vue"
 import Modal from "./components/Modal.vue"
 import Toast from "./components/Toast.vue"
-import Select from "./components/Select.vue"
 import RadioGroup from "./components/RadioGroup.vue"
 import TinyTabs from "./components/TinyTabs.vue"
 import MultiSelect from "./components/MultiSelect.vue"
@@ -85,7 +84,6 @@ const components = {
   [Loader.name]: Loader,
   [Modal.name]: Modal,
   [Toast.name]: Toast,
-  [Select.name]: Select,
   [RadioGroup.name]: RadioGroup,
   [TinyTabs.name]: TinyTabs,
 	[MultiSelect.name]: MultiSelect,
@@ -127,7 +125,6 @@ export {
   Loader,
   Toast,
   Modal,
-  Select,
   RadioGroup,
   TinyTabs,
 	MultiSelect,
