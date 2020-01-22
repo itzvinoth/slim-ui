@@ -10,10 +10,10 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "@htoniv/tiny-tabs": "^1.0.1",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^2.0.8",
-    "postcss-url": "^7.2.1",
-    "@htoniv/tiny-tabs": "^1.0.1"
+    "postcss-url": "^7.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
