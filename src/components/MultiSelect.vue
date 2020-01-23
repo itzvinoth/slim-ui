@@ -174,7 +174,7 @@ export default {
 
 <style lang="scss" scoped>
 .multiselect__select {
-	border: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
 	width: 100%;
 }
 .selected {
@@ -190,6 +190,7 @@ ul.multiselect__tags {
 	margin: 5px 0;
 }
 ul.multiselect__content {
+  margin-top: -1px;
 	list-style-type: none;
 	padding: 0;
 	border: 1px solid #CCC;
@@ -231,7 +232,7 @@ li.multiselect__tag {
 }
 input.search {
 	border: 0;
-	width: 65px;
+	width: 100px;
 	&:focus {
 		outline: none;
 	}
