@@ -1,6 +1,6 @@
 <template>
-  <div id="otp-box" v-on:keyup="queryForKeywords" contenteditable="false" @paste="getPastedValue">
-    <input v-for="n in otplength" :key="n" type="text" placeholder="○" v-model="otpvalues[n-1]" :name="'in'+n" maxlength="1" class="otp-input">
+  <div id="otp-box" v-on:keyup="queryForKeywords" contenteditable="false" @paste="getPastedValue" :style="`height: ${boxHeight}px`">
+    <input v-for="n in otplength" type="text" placeholder="○" v-model="otpvalues[n-1]" :name="'in'+n" :key="'in'+n" maxlength="1" class="otp-input" :style="`width: ${boxWidth}px`">
   </div>
 </template>
 
@@ -16,6 +16,16 @@ export default {
     otpValues: {
       type: Array,
       default: []
+    },
+    boxWidth: {
+      type: Number,
+      default: 32,
+      required: false
+    },
+    boxHeight: {
+      type: Number,
+      default: 32,
+      required: false
     }
   },
   data () {
@@ -28,7 +38,6 @@ export default {
     // create mouseup event for all child input elements...
     let inputFields = document.querySelectorAll(".otp-input")
     for (var i=0; i<inputFields.length; i++) {
-      // inputFields[i].addEventListener('mouseup', this.onMouseUp)
       inputFields[i].addEventListener('keypress', this.isNumber)
       inputFields[i].addEventListener('focus', this.onFocus)
       inputFields[i].addEventListener('blur', this.onBlur)
@@ -55,7 +64,6 @@ export default {
     },
     queryForKeywords (evt) {
       let target = evt.srcElement
-      // let parentElm = target.parentNode
       let targetValue = target.value
       let maxLength = parseInt(target.attributes["maxlength"].value)
       let tl = targetValue.length
@@ -74,7 +82,6 @@ export default {
         let previous = target
         while (previous = previous.previousElementSibling) {
           if (previous.tagName.toLowerCase() === "input") {
-            // document.activeElement.blur()
             previous.select()
             previous.focus()
             break
@@ -103,7 +110,8 @@ export default {
   font-size: 12px;
 }
 #otp-box input {
-  width: 32px !important;
   text-align: center;
+  height: 100%;
+  box-sizing: border-box;
 }
 </style>

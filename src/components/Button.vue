@@ -45,8 +45,8 @@ button {
 	padding: 5px 20px;
 	border-radius: 2px;
 	border: 1px solid $color-dusty-grey;
-	font-weight: 400;
-	font-size: 0.825rem;
+    font-weight: 400;
+    font-size: 0.825rem;
 	letter-spacing: 0.5px;
 	display: inline-block;
 	cursor: pointer;
@@ -95,6 +95,26 @@ button {
 				color: $color-solid-white;
 				background: $color-fruit-salad-green;
 				border-color: $color-fruit-salad-green;
+			}
+		}
+
+	}
+
+	&.button-yellow {
+		color: $color-solid-white;
+		background: $color-solid-amber;
+		border-color: $color-solid-amber;
+
+		&.button-outline {
+			color: $color-solid-amber;
+			background: $color-solid-white;
+			border-color: $color-solid-amber;
+
+			&:hover {
+				opacity: 1;
+				color: $color-solid-white;
+				background: $color-solid-amber;
+				border-color: $color-solid-amber;
 			}
 		}
 
@@ -181,5 +201,6 @@ button {
 		color:  $color-dusty-grey;
 	}
 }
+
 
 </style>
