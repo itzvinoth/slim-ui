@@ -1,6 +1,6 @@
 <template>
   <div :style="containerStyle" class="multiselect">
-    <div class="multiselect__select" :style="inputStyle" @click="keyCapture">
+    <div class="multiselect__select" @click="keyCapture">
       <ul class="multiselect__tags">
         <li class="multiselect__tag" v-for="data in selectedValues" :key="data.label">
           {{ data.label }}
@@ -23,8 +23,7 @@ export default {
   data() {
     return {
       showLabels: false,
-      search: '',
-      divHeight: 0
+      search: ''
     }
   },
   props: {
@@ -65,12 +64,6 @@ export default {
       }
     })
   },
-  created() {
-    this.heightChange()
-  },
-  updated() {
-    this.heightChange()
-  },
   mounted() {
     window.addEventListener("click", this.onSelectContainer)
   },
@@ -78,10 +71,6 @@ export default {
     window.removeEventListener("click", this.onSelectContainer)
   },
   methods: {
-    // based on selected values height of the box varies..
-    heightChange() {
-      this.divHeight = (Math.ceil((this.selectedValues.join().length + 1) / 45)) * 40
-    },
     // show labels list on focus of the multi select container..
     onFocus() {
       this.showLabels = true
@@ -155,11 +144,6 @@ export default {
     containerStyle() {
       return {
         width: (this.width !== undefined ? this.width + 'px' : '300px')
-      }
-    },
-    inputStyle() {
-      return {
-        height: this.divHeight + 'px'
       }
     },
     labelStyle() {
