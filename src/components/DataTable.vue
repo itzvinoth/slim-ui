@@ -328,7 +328,6 @@ export default {
 		}, 200),
 		// Filter data based on search
 		doSearch (filterOnly) {
-			console.log('do search')
 			this.currentSearchFilterOnly = filterOnly
 
 			for (let row of this.tableData) {
