@@ -2,7 +2,7 @@
   <div :style="containerStyle" class="multiselect">
     <div class="multiselect__select" @click="keyCapture">
       <ul class="multiselect__tags">
-        <li class="multiselect__tag" v-for="data in selectedValues" :key="data.label">
+        <li class="multiselect__tag labels" v-for="data in selectedValues" :key="data.label">
           {{ data.label }}
           <span class="close" @click="clearItem(data)">&times;</span>
         </li>
@@ -158,11 +158,11 @@ export default {
 
 <style lang="scss" scoped>
 .multiselect__select {
-	border-bottom: 1px solid #CCC;
+	border-bottom: 1px solid #e3e3e3;
 	width: 100%;
 }
 .selected {
-	background: #41c69e;
+	background: #b6ddf0;
 }
 .navcolor {
 	color: #c0f0e1;
@@ -171,14 +171,14 @@ ul.multiselect__tags {
 	list-style-type: none;
 	padding: 0;
 	display: inline-block;
-	margin: 5px 0;
+	margin: 5px 0 2px 0;
 }
 ul.multiselect__content {
   margin-top: -1px;
 	list-style-type: none;
 	padding: 0;
 	border: 1px solid #CCC;
-	background-color: #FFF;
+	background: #FFF;
 	display: inline-block;
 	max-height: 100px;
 	overflow-y: auto;
@@ -187,22 +187,27 @@ ul.multiselect__content {
 li.multiselect__content--elem {
 	padding: 4px;
 	text-align: left;
-	position: relative;
+  position: relative;
+  cursor: default;
 }
 li.multiselect__tag {
 	cursor: pointer;
 	float: left;
 	display: inline-block;
-	border: 1px solid #CCC;
-	border-radius: 2px;
+  // border: 1px solid #CCC;
+  border-radius: 2px;
 	padding-left: 4px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-right: 14px;
+	padding-right: 20px;
 	margin-left: 5px;
 	margin-bottom: 4px;
 	display: block;
-	position: relative;
+  position: relative;
+  &.labels {
+    background: #b6ddf0;
+    margin-bottom: 5px;
+  }
 	&:last-child {
 		border: 0 !important;
 	}
@@ -211,7 +216,8 @@ li.multiselect__tag {
 	cursor: pointer;
 	position: absolute;
 	top: 50%;
-	right: 0%;
+  right: 0%;
+  padding: 0 5px;
 	transform: translate(0%, -50%);
 }
 input.search {
