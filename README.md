@@ -79,8 +79,8 @@ import { Button } from 'slim-ui';
 
 export default {
   components: {
-		'su-button': Button
-	}
+    'su-button': Button
+  }
 }
 </script>
 ```
