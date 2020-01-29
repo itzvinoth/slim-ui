@@ -83,7 +83,8 @@ export default {
 </script>
 ```
 
-## [📚Docs github repo](https://github.com/mevinoth/vp-docs)
+## Documentation
+SlimUI Docs are powered by VuePress and the source can be viewed [here](https://github.com/mevinoth/vp-docs).
 
 ## License
 MIT
