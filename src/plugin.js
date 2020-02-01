@@ -13,7 +13,7 @@ import MultiSelect from "./components/MultiSelect.vue"
 import OTP from "./components/OTP.vue"
 import DataTable from "./components/DataTable.vue"
 import tooltip from "./directives/tooltip"
-import Events from './events'
+import Events from "./events"
 
 class ToastClass {
 	constructor (eventBus, Vue) {
