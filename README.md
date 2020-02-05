@@ -90,4 +90,5 @@ SlimUI Docs are powered by VuePress and the source can be viewed [here](https://
 MIT
 
 ## Credits
+Kailash ([@knadh](https://github.com/knadh))
 Vivek ([@vividvilla](https://github.com/vividvilla))

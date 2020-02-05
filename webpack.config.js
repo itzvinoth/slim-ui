@@ -1,7 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
@@ -21,7 +21,12 @@ module.exports = {
         ],
       },
       // use babel-loader for js files
-      { test: /\.js$/, use: 'babel-loader' },
+      { test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: 'babel-loader', options: {
+        presets: ['@babel/preset-env'],
+        plugins: ['@babel/plugin-proposal-object-rest-spread']
+      } },
       // use vue-loader for .vue files
       { test: /\.vue$/, use: 'vue-loader' }
     ]
