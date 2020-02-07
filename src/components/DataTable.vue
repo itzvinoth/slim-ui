@@ -649,6 +649,12 @@ export default {
 	    }
 	}
 
+	tbody {
+		tr.search-term-absent {
+			display: none;
+		}
+	}
+
 	.arrow {
         display: inline-block;
         float: left;
