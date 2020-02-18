@@ -162,7 +162,9 @@ export default {
 	width: 100%;
 }
 .selected {
-	background: #b6ddf0;
+  background: rgba(0,84,198,.2);
+  color: #0059c1;
+
 }
 .navcolor {
 	color: #c0f0e1;
@@ -200,12 +202,13 @@ li.multiselect__tag {
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-right: 20px;
-	margin-left: 5px;
+	margin-left: 8px;
 	margin-bottom: 4px;
 	display: block;
   position: relative;
   &.labels {
-    background: #b6ddf0;
+    background: rgba(0,84,198,.2);
+    color: #0059c1;
     margin-bottom: 5px;
   }
 	&:last-child {
