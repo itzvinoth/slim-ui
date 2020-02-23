@@ -56,7 +56,7 @@
 
 			<!-- Table body -->
 			<tbody>
-				<tr v-for="(row, index) in tableData" :key="(uid && row[uid]) || index" :data-uid="(uid && row[uid]) || index"
+				<tr v-for="(row, index) in limitTableData" :key="(uid && row[uid]) || index" :data-uid="(uid && row[uid]) || index"
 					:class="[row._style, { 'focused': focus && focusedRow && (row[uid] === focusedRow[uid]) }]"
 					@click="handleRowClick(row, $event)" @mouseenter="handleMouseEnter(row, $event)" @mouseleave="handleMouseLeave(row, $event)">
 					<!-- Hack to prevent row click from triggering select multiple times -->
@@ -87,6 +87,11 @@
 				<slot name="footer"></slot>
 			</tfoot>
 		</table>
+		<ul>
+			<li v-if="prevText" @click.stop="goToPrev">{{prevText}}</li>
+			<li v-for="(page, index) in pages" :key="index" @click.stop="selectPage(index)" :class="(index === currentPageIndex - 1) ? 'selected' : 'unselected'">{{ page }}</li>
+			<li v-if="nextText" @click.stop="goToNext">{{nextText}}</li>
+		</ul>
 	</div>
 </template>
 
@@ -132,6 +137,11 @@ function deepClone(d) {
 
 export default {
 	props: {
+		perPage: Number,
+		currentPage: Number,
+		pagination: Boolean,
+		nextText: String,
+		prevText: String,
 		// Data
 		data: {
 			required: true,
@@ -239,10 +249,18 @@ export default {
 
 			// Focus
 			// Track current focsed row
-			focusedRow: null
+			focusedRow: null,
+
+			// pagination
+			pages: 0,
+			currentPageIndex: this.currentPage
 		}
 	},
 	created () {
+		if (this.pagination) {
+			let perPage = (this.perPage < 1) ? 1 : this.perPage
+			this.pages = Math.round(this.data.length / perPage)
+		}
 		// Set data fields
 		this.tableHeaders = deepClone(this.headers)
 		this.setData(this.data, this.currentLimit)
@@ -290,7 +308,37 @@ export default {
 			this.setData(d, this.currentLimit)
 		}
 	},
+	computed: {
+		limitTableData () {
+			// pagination
+			if (this.pagination) {
+				let startValue = ((this.currentPageIndex - 1) * this.perPage)
+				let endValue = ((this.currentPageIndex) * this.perPage) - 1
+				return this.tableData.filter((item, index) => {
+					if (startValue <= index && endValue >= index) {
+						return item
+					}
+				})
+			} else {
+				return this.tableData
+			}
+		}
+	},
 	methods: {
+		goToPrev () {
+			if (this.currentPageIndex > 1) {
+				this.currentPageIndex--
+			}
+		},
+		goToNext () {
+			if (this.currentPageIndex < this.pages) {
+				this.currentPageIndex++
+			}
+		},
+		selectPage (index) {
+			let pageIndex = index + 1
+			this.currentPageIndex = pageIndex
+		},
 		setData (d, limit) {
 			if (limit === -1) {
 				this.tableData = deepClone(d)
@@ -472,6 +520,7 @@ export default {
 				let uid = (this.uid && item[this.uid])
 				selected[uid] = val.target.checked
 			}
+
 			this.selectedUIDs = selected
 			this.$nextTick(() => this.emitSelectedEvent())
 		},
@@ -576,6 +625,7 @@ export default {
 	}
 }
 </script>
+
 
 <style lang="scss" scoped>
 @import "../styles/_common.scss";
@@ -685,7 +735,21 @@ export default {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         top: 3px !important;
-    }
+		}
+		ul {
+				padding: 0;
+				list-style-type: none;
+				text-align: center;
+		}
+		li {
+				cursor: pointer;
+				display: inline;
+				margin: 5px 5px;
+		}
+		li.selected {
+				color: #0059c1;
+				text-decoration: underline;
+		}
 }
 
 </style>
