@@ -14,11 +14,15 @@ import OTP from "./components/OTP.vue"
 import DataTable from "./components/DataTable.vue"
 import tooltip from "./directives/tooltip"
 import Events from "./events"
+import Vue from 'vue'
 
-class ToastClass {
+export default class SlimUI {}
+
+SlimUI.install = install
+SlimUI.Toast = class ToastClass {
 	constructor (eventBus, Vue) {
 		this.eventBus = eventBus
-    	this.component = this.mountComponent(eventBus, Vue)
+		this.component = this.mountComponent(eventBus, Vue)
 
 		// Orientation constants.
 		this.TOP_LEFT = this.component.orientations.TOP_LEFT
@@ -30,7 +34,7 @@ class ToastClass {
 	}
 
 	mountComponent (eventBus, Vue) {
-    	let ToastConstructor = Vue.extend(Toast)
+		let ToastConstructor = Vue.extend(Toast)
 		let instance = new ToastConstructor({
 			propsData: {
 				eventBus: eventBus
@@ -105,15 +109,17 @@ function install(Vue, options) {
 
   // Register events and pass it as prop to all child components
   Vue.prototype.$events = eventsInstance
-  Vue.prototype.$toast = new ToastClass(eventsInstance.eventBus, Vue)
+  Vue.prototype.$toast = new SlimUI.Toast(eventsInstance.eventBus, Vue)
 }
+
+// Register events and pass it as prop to all child components
+Vue.prototype.$events = eventsInstance
+Vue.prototype.$toast = new SlimUI.Toast(eventsInstance.eventBus, Vue)
 
 // // Automatic installation if Vue has been added to the global scope.
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use({ install })
 }
-
-export default { install }
 
 export {
   Button,
