@@ -3,7 +3,7 @@
 		<label v-if="this.staticLabel || this.animate" :class="labelClasses">{{ currentLabel }}</label>
 
 		<input :type="type" v-bind="$props" :placeholder="currentPlaceholder"
-			@focus="onFocus()" @blur="onBlur()" @input="handleInput" :class="spinnerClasses" :value="currentValue" :readonly="readonly" autocorrect="off" autocapitalize="none">
+			@focus="onFocus()" @blur="onBlur()" @input="handleInput" :class="spinnerClasses" :value="currentValue" :readonly="readonly" autocorrect="off" autocapitalize="none" :required="required">
 		<checkmark-icon :class="iconStatusClasses" v-if="hasStatus" width="16" height="16"></checkmark-icon>
 
 		<div>
@@ -49,6 +49,7 @@ export default {
 			type: String,
 			default: "text"
 		},
+		required: String,
 		placeholder: {
 			type: String,
 			default: ""
