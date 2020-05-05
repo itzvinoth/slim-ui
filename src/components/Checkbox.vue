@@ -3,7 +3,7 @@
         <input :checked="isChecked" :id="id" v-bind="$props" @change="handleInput" :value="currentValue" class="su-checkbox" type="checkbox">
         <label :for="id" class="su-checkbox-label">
 			<span class="su-checkbox-box"><span class="su-checkbox-tick"></span></span>
-			<span class="su-checkbox-value" v-if="currentLabel">{{ currentLabel }}</span>
+			<span class="su-checkbox-value" v-if="currentLabel" v-html="currentLabel"></span>
 		</label>
 	</div>
 </template>
