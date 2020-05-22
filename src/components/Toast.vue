@@ -186,46 +186,41 @@ $color-warning: $color-yellow;
 		display: flex;
 		box-sizing: border-box;
 		max-width: 400px;
+		min-width: 300px;
 		pointer-events: all;
 		position: relative;
-		// text-align: center;
 		margin: 0 auto 10px auto;
-		background: $color-background;
-		border: 1px solid rgba($color-solid-black, 0.2);
-		border-left-width: 6px;
-
-		border-radius: 2px;
-		padding: 10px 50px 10px 10px;
-		// box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
-
+		padding: 10px 30px 15px 15px;
 		transition: opacity .2s, transform .2s;
+		background: $color-solid-white;
+		border: 1px solid $color-gallery-grey;
+		box-shadow: 2px 2px 4px $color-gallery-grey;
+		border-left: 20px solid $color-gallery-grey;
+		border-radius: 5px;
 
 		&.info {
 			color: $color-havelock-blue;
-			border-color: rgba($color-havelock-blue, 0.25);
-			background: rgba(lighten($color-havelock-blue, 35%), 0.9);
+			border-left-color: $color-havelock-blue;
 		}
 
 		&.success {
 			color: $color-success;
-			border-color: rgba($color-success, 0.25);
-			background: rgba(lighten($color-success, 45%), 0.9);
+			border-left-color: $color-success;
 		}
 
 		&.warning {
 			color: $color-warning;
-			border-color: rgba($color-warning, 0.25);
-			background: rgba(lighten($color-warning, 45%), 0.9);
+			border-left-color: $color-warning;
 		}
 
 		&.error {
 			color: $color-error;
-			border-color: rgba($color-error, 0.25);
-			background: rgba(lighten($color-error, 40%), 0.9);
+			border-left-color: $color-error;
 		}
 
 		.message {
 			margin: 5px 0;
+			color: $color-solid-grey;
 		}
 	}
 
