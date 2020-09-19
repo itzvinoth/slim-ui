@@ -10,7 +10,9 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "@htoniv/tiny-tabs": "^1.0.1"
+    "@htoniv/tiny-tabs": "^1.0.1",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
