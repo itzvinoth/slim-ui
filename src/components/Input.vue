@@ -33,6 +33,7 @@ export default {
 		noerror: Boolean,
 		errormessage: String,
 		staticLabel: Boolean,
+		pattern: String,
 		hasStatus: {
 			type: Boolean,
 			default: false
