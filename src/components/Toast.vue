@@ -5,7 +5,7 @@
 				<div v-for="toast in toasts[o]" :key="toast.id" :class="toast.classes"
 					@mouseover="handleToastHover(toast)" @mouseleave="handleToastLeave(toast)">
 					<div :class="['su-toast-icon', 'icon', icons[toast.type]]"></div>
-					<div class="message">{{ toast.message }}</div>
+					<div class="message" v-html="toast.message"></div>
 					<span class="icon icon-times close" v-if="toast.closable" @click="remove(toast.id, toast.orientation)"></span>
 				</div>
 			</transition-group>
