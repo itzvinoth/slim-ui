@@ -1,6 +1,6 @@
 <template>
 	<div :class="classes" :title="title">
-		<input :checked="isChecked" :id="id" v-bind="$props" class="su-radio" type="radio" @change="handleInput">
+		<input :checked="isChecked" :id="id" v-bind="$props" class="su-radio" type="radio" @change="handleInput" :aria-label="ariaLabel" :role="role">
 		<label :for="id" class="su-radio-label">{{ currentLabel }}</label>
 	</div>
 </template>
@@ -19,6 +19,14 @@
 			checked: Boolean,
 
 			label: {
+				type: String,
+				default: ""
+			},
+			ariaLabel: {
+				type: String,
+				default: ""
+			},
+			role: {
 				type: String,
 				default: ""
 			}

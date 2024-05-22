@@ -1,5 +1,5 @@
 <template>
-	<form @submit="onSubmit">
+	<form @submit="onSubmit" :aria-label="ariaLabel" :role="role">
 		<slot></slot>
 	</form>
 </template>
@@ -20,7 +20,15 @@
 				type: String,
 				default: ""
 			},
-			rules: {}
+			rules: {},
+			ariaLabel: {
+				type: String,
+				default: ""
+			},
+			role: {
+				type: String,
+				default: ""
+			}
 		},
 		data () {
 			return {

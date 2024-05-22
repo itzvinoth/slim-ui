@@ -2,7 +2,7 @@
 	<div :class="classes">
 		<label v-if="this.staticLabel || this.animate" :class="labelClasses">{{ currentLabel }}</label>
 
-		<input :type="type" v-bind="$props" :placeholder="currentPlaceholder"
+		<input :type="type" v-bind="$props" :placeholder="currentPlaceholder" :aria-label="ariaLabel" :role="role"
 			@focus="onFocus()" @blur="onBlur()" @input="handleInput" :class="spinnerClasses" :value="currentValue" :readonly="readonly" autocorrect="off" autocapitalize="none" :required="required">
 		<checkmark-icon :class="iconStatusClasses" v-if="hasStatus" width="16" height="16"></checkmark-icon>
 
@@ -64,6 +64,14 @@ export default {
 			default: function () {
 				return []
 			}
+		},
+		ariaLabel: {
+			type: String,
+			default: ""
+		},
+		role: {
+			type: String,
+			default: ""
 		}
 	},
 	data () {

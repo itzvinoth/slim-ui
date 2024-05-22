@@ -1,5 +1,5 @@
 <template>
-	<button :disabled="isDisabled" :type="type" :title="title">
+	<button :disabled="isDisabled" :type="type" :title="title" :aria-label="ariaLabel" :role="role">
 		<slot v-if="!isProcessing"></slot>
 		<su-loader v-if="isProcessing" :size="12"></su-loader>
 	</button>
@@ -16,6 +16,14 @@
 			type: {
 				type: String,
 				default: "button"
+			},
+			ariaLabel: {
+				type: String,
+				default: ""
+			},
+			role: {
+				type: String,
+				default: ""
 			}
 		},
 		data () {

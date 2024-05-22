@@ -1,6 +1,6 @@
 <template>
 	<div class="su-checkbox-group" :class="groupClass">
-        <input :checked="isChecked" :id="id" v-bind="$props" @change="handleInput" :value="currentValue" class="su-checkbox" type="checkbox">
+        <input :checked="isChecked" :id="id" v-bind="$props" @change="handleInput" :value="currentValue" class="su-checkbox" type="checkbox" :aria-label="ariaLabel" :role="role">
         <label :for="id" class="su-checkbox-label">
 			<span class="su-checkbox-box"><span class="su-checkbox-tick"></span></span>
 			<span class="su-checkbox-value" v-if="currentLabel" v-html="currentLabel"></span>
@@ -23,6 +23,14 @@
 			indeterminate: Boolean,
 
 			label: {
+				type: String,
+				default: ""
+			},
+			ariaLabel: {
+				type: String,
+				default: ""
+			},
+			role: {
 				type: String,
 				default: ""
 			}

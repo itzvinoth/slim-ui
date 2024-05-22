@@ -3,7 +3,7 @@
 		<span v-if="stateOffLabel" class="su-switch-label su-switch-state-off">{{ stateOffLabel }}</span>
 
 		<input :checked="isChecked" :id="id" v-bind="$props" @change="handleInput"
-			:value="currentValue" class="su-switch" type="checkbox">
+			:value="currentValue" class="su-switch" type="checkbox" :aria-label="ariaLabel" :role="role">
 
 		<label :for="id" class="su-switch-control">{{ currentLabel }}</label>
 
@@ -29,6 +29,14 @@
 			stateOffLabel: String,
 
 			label: {
+				type: String,
+				default: ""
+			},
+			ariaLabel: {
+				type: String,
+				default: ""
+			},
+			role: {
 				type: String,
 				default: ""
 			}
